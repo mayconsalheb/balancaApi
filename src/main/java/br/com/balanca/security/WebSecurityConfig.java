@@ -26,18 +26,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 				.configurationSource(source)
 	            .and()
 	            .csrf().disable()
-//				.authorizeRequests()
-//				.antMatchers("/aluno/inserirMatriculaOnline")
-//				.permitAll()
-//				.and()
-//				.authorizeRequests()
-//				.antMatchers("/medicao/upload")
-//				.permitAll()
-//				.antMatchers("/login")
-//				.permitAll()
-//				.anyRequest()
-//				.authenticated()
-				
 			;
 		}
 }
