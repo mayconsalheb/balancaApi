@@ -3,6 +3,8 @@ package br.com.balanca.controller;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +30,13 @@ public class Upload {
             RedirectAttributes redirectAttributes) {
 
         try {
-        	File f = new File("temp1.csv");
+        	String fileName = new Long(Calendar.getInstance().getTime().getTime()).toString();
+        	File f = new File(fileName);
 			OutputStream out = new FileOutputStream(f);
 			out.write(file.getBytes());
 			out.close();
 			
+			@SuppressWarnings("unchecked")
 			List<BalanceRecord> records = (List<BalanceRecord>) parser.parseCsv(f.getAbsolutePath(), BalanceRecord.class);
         }catch (Exception e) {
 			e.printStackTrace();
